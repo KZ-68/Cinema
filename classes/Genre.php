@@ -20,7 +20,7 @@ class Genre {
     public function afficherListeFilms() {
         $result = "";
         foreach ($this->_filmsGenre as $listeFilms) {
-            $result .= "".$listeFilms->getTitle()." ";
+            $result .= "".$listeFilms->getTitle()."";
         }
         return $result;
     }
