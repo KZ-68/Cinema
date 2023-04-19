@@ -32,5 +32,13 @@ class Casting {
         return $result;
     }
 
+    public function afficherActeurRole(Acteur $actorRole) {
+        $result = "";
+        foreach ($this->_actors as $actorCasting) {
+            $result .= "".$actorRole->getNomComplet()."";
+        }
+        return $result;
+    }
+
 }
 
