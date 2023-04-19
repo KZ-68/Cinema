@@ -37,6 +37,7 @@
     echo $genre1;
     echo $genre1->afficherListeFilms();
     echo $role3;
+    echo $casting3->afficherActeurRole($actor3);
     
     ?>
     
