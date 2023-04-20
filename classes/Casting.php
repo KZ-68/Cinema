@@ -1,44 +1,46 @@
 <?php
 
 class Casting {
-    private array $_films;
-    private array $_roles;
-    private array $_actors;
+    private Film $_movie;
+    private Rôle $_role;
+    private Acteur $_actor;
 
-    public function __construct() {
-        $this->_films = [];
-        $this->_roles = [];
-        $this->_actors = [];
+    public function __construct(Film $movie, Rôle $role, Acteur $actor) {
+        $this->_movie = $movie;
+        $this->_role = $role;
+        $this->_actor = $actor;
+        
+        $this->_movie->addCasting($this);
+        $this->_role->addCasting($this);
+        $this->_actor->addCasting($this);
     }
 
-    public function addFilmsCasting(Film $film) {
-        $this->_films[] = $film;
+    public function __toString() {
+        return "".$this->_role->getCharacterName()." à été incarné par ".$this->_actor->getNomComplet().", ";
+    }
+ 
+    public function getMovie() {
+        return $this->_movie;
     }
 
-    public function addRolesCasting(Rôle $role) {
-        $this->_roles[] = $role;
+    public function setMovie($movie){
+        $this->_movie = $movie;
     }
 
-    public function addActeursCasting(Acteur $actor) {
-        $this->_actors[] = $actor;
+    public function getRole() {
+        return $this->_role;
     }
 
-    public function afficherFilms(Film $filmCasting, Rôle $roleCasting, Acteur $actorCasting, Rôle $roleCasting2, Acteur $actorCasting2) {
-        $result = "";
-        foreach ($this->_films as $film) {
-            $result = "<p>Dans le film ".$filmCasting->getTitle().", ".$roleCasting->getCharacterName()." à été incarné par ".$actorCasting->getNomComplet().", <br/>
-            ".$roleCasting2->getCharacterName()." à été incarné par ".$actorCasting2->getNomComplet()."</p>";
-        }
-        return $result;
+    public function setRole($role){
+        $this->_role = $role;
     }
 
-    public function afficherActeurRole(Acteur $actorRole) {
-        $result = "";
-        foreach ($this->_actors as $actorCasting) {
-            $result .= "".$actorRole->getNomComplet()."";
-        }
-        return $result;
+    public function getActor() {
+        return $this->_actor;
     }
 
+    public function setActor($actor) {
+        $this->_actor = $actor;
+    }
 }
 

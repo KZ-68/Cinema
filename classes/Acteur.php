@@ -1,12 +1,30 @@
 <?php
 
 class Acteur extends Personne {
-    private Casting $_casting;
+    // Attribut
+    private array $_casting;
 
-    public function __construct(string $firstname, string $lastname, string $sex, string $dateBirth, Casting $casting) {
+    // Constructeur
+    public function __construct(string $firstname, string $lastname, string $sex, string $dateBirth) {
         parent::__construct($firstname, $lastname, $sex, $dateBirth);
-            $this->_casting = $casting;
-            $this->_casting->addActeursCasting($this);
+            $this->_casting = [];
+    }
+
+    // Méthodes
+    public function addCasting(Casting $casting) {
+        $this->_casting[] = $casting;
+    }
+
+    public function __toString() {
+        return "".$this->getNomComplet()."";
+    }
+
+    public function displayFilmography() {
+        $result = "<h3>Les films de l'acteur $this :</h3>";
+        foreach ($this->_casting as $casting) {
+            $result .= $casting->getMovie(). ", ";
+        }
+        return $result;
     }
 
     public function getNomComplet() {

@@ -2,25 +2,25 @@
 
 class Genre {
     private string $_nameGenre; 
-    private array $_filmsGenre;
+    private array $_moviesGenre;
 
     public function __construct(string $nameGenre) {
         $this->_nameGenre = $nameGenre;
-        $this->_filmsGenre = [];
-    }
-
-    public function addFilmsGenre(Film $filmGenre) {
-        $this->_filmsGenre[] = $filmGenre;
+        $this->_moviesGenre = [];
     }
 
     public function __toString() {
-        return "<p> Le genre ".$this->_nameGenre." est associé à X films :"; 
+        return "<h3>Le genre ".$this->_nameGenre." est associé à X films :</h3>"; 
     }
 
-    public function afficherListeFilms() {
+    public function addMoviesGenre(Film $movieGenre) {
+        $this->_moviesGenre[] = $movieGenre;
+    }
+
+    public function displayGenreList() {
         $result = "";
-        foreach ($this->_filmsGenre as $listeFilms) {
-            $result .= "".$listeFilms->getTitle()."";
+        foreach ($this->_moviesGenre as $movieGenre) {
+            $result .= " ".$movieGenre->getTitle()." <br/> ";
         }
         return $result;
     }
@@ -33,11 +33,11 @@ class Genre {
         $this->_nameGenre = $nameGenre;
     }
 
-    public function getFilmsGenre() {
-        return $this->_filmsGenre;
+    public function getMoviesGenre() {
+        return $this->_moviesGenre;
     }
 
-    public function setFilmsGenre($filmGenre) {
-        $this->_filmsGenre = $filmGenre;
+    public function setMoviesGenre($movieGenre) {
+        $this->_moviesGenre = $movieGenre;
     }
 }

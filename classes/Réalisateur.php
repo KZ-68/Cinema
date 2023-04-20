@@ -1,26 +1,29 @@
 <?php
 
 class Réalisateur extends Personne {
-    private array $_films;
-
+    // Attributs
+    private array $_movies;
+    
+    // Constructeur
     public function __construct(string $firstname, string $lastname, string $sex, string $dateBirth) {
         parent::__construct($firstname, $lastname, $sex, $dateBirth);
 
-            $this->_films = [];
+            $this->_movies = [];
     }
-
-    public function addFilms(Film $film) {
-        $this->_films[] = $film;
+    
+    // Méthodes
+    public function addMovies(Film $movie) {
+        $this->_movies[] = $movie;
     }
 
     public function __toString() {
-        return "<h3>Films de ".$this->getFirstname()." ".$this->getLastname()."</h3>";
+        return $this->_firstname." ".$this->_lastname;
     }
     
-    public function afficherFilmographie() {
-        $result = "";
-        foreach ($this->_films as $film) {
-            $result .= $film;
+    public function displayFilmography() {
+        $result = "<h3>Films réalisé par $this :</h3>";
+        foreach ($this->_movies as $movie) {
+            $result .= $movie;
         }
         return $result;
     }
