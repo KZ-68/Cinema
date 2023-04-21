@@ -54,6 +54,7 @@
     echo $role4->displayActorRole();
 
     echo $film1->displayMovieCasting();
+    echo $film2->displayMovieCasting();
 
     echo $réalisateur1->displayFilmography();
     echo $réalisateur2->displayFilmography();

@@ -28,16 +28,13 @@ class Rôle {
         return $result;
     }
 
+    // Getters et Setters
     public function getCharacterName() {
         return $this->_characterName;
     }
 
     public function setCharacterName($characterName) {
         $this->_characterName = $characterName;
-    }
-
-    public function getActor() {
-        $this->_actor = $actor;
     }
 
 }

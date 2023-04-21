@@ -13,7 +13,7 @@ class Réalisateur extends Personne {
     
     // Méthodes
     public function addMovies(Film $movie) {
-        $this->_movies[] = $movie;
+        $this->_movies[] = $movie; // array push de Film
     }
 
     public function __toString() {
@@ -21,7 +21,7 @@ class Réalisateur extends Personne {
     }
     
     public function displayFilmography() {
-        $result = "<h3>Films réalisé par $this :</h3>";
+        $result = "<h3>Films réalisés par $this :</h3>";
         foreach ($this->_movies as $movie) {
             $result .= $movie;
         }

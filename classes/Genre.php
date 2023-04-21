@@ -1,20 +1,23 @@
 <?php
 
 class Genre {
+    // Attributs
     private string $_nameGenre; 
     private array $_moviesGenre;
 
+    // Constructeur
     public function __construct(string $nameGenre) {
         $this->_nameGenre = $nameGenre;
         $this->_moviesGenre = [];
     }
 
+    // Méthodes
     public function __toString() {
         return "<h3>Le genre ".$this->_nameGenre." est associé à X films :</h3>"; 
     }
 
     public function addMoviesGenre(Film $movieGenre) {
-        $this->_moviesGenre[] = $movieGenre;
+        $this->_moviesGenre[] = $movieGenre; // array push de Film
     }
 
     public function displayGenreList() {
@@ -25,6 +28,7 @@ class Genre {
         return $result;
     }
 
+    // Getters et Setters
     public function getNameGenre() {
         return $this->_nameGenre;
     }

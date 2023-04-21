@@ -12,7 +12,7 @@ class Acteur extends Personne {
 
     // Méthodes
     public function addCasting(Casting $casting) {
-        $this->_casting[] = $casting;
+        $this->_casting[] = $casting; // array push de Casting
     }
 
     public function __toString() {

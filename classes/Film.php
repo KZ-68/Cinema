@@ -52,7 +52,7 @@ class Film {
         $result = "<h3>Casting par film :</h3>
         Dans le Film ".$this->_title." ";
         foreach ($this->_casting as $casting) {
-            $result .= $casting ;
+            $result .= $casting;
         }
         return $result;
     }

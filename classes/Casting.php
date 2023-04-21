@@ -1,24 +1,28 @@
 <?php
 
 class Casting {
+    // Attributs
     private Film $_movie;
     private Rôle $_role;
     private Acteur $_actor;
 
+    // Constructeur
     public function __construct(Film $movie, Rôle $role, Acteur $actor) {
         $this->_movie = $movie;
         $this->_role = $role;
         $this->_actor = $actor;
         
-        $this->_movie->addCasting($this);
+        $this->_movie->addCasting($this); 
         $this->_role->addCasting($this);
         $this->_actor->addCasting($this);
     }
 
+    // Méthodes
     public function __toString() {
         return "".$this->_role->getCharacterName()." à été incarné par ".$this->_actor->getNomComplet().", ";
     }
  
+    // Getters et Setters
     public function getMovie() {
         return $this->_movie;
     }
